@@ -22,10 +22,9 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml -DskipTests
-
-    - name: Upload jar
-      run: mkdir staging && cp target/sumpdata-*.jar staging
-    - uses: actions/upload-artifact@v4
+        
+    - name: Java Automatic Release
+      uses: fulminazzo/java-automatic-release@v3
       with:
-        name: Package
-        path: staging
+        java-version: 21
+              
